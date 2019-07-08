@@ -14,7 +14,7 @@ mongoose.connection.on('connected', () => {
 app.use(logger('dev'));
 
 app.listen(config.port, () => {
-    console.log(`API Server started and listening on port`);
+    console.log(`API Server started and listening on port ${config.port}`);
 });
 
 export default app;

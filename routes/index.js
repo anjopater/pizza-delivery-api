@@ -10,6 +10,6 @@ router.get('/api-status', (req, res) =>
     })
 );
 
-router.use('/pizzas', pizzaRoutes);
+router.use('/', pizzaRoutes);
 
 export default router;
