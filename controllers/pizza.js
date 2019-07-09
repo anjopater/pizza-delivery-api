@@ -11,9 +11,10 @@ exports.save = function (req, res) {
   pizza.imageUrl = imageUrl;
   pizza.price = price;
 
-  pizza.save((err) => {
+  pizza.save((err,data) => {
+    console.log(data);
     if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
+    return res.json({ success: true, data: data });
   });
 };
 
