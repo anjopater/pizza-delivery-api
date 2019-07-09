@@ -4,10 +4,10 @@ const Pizza = require('../models/pizza');
 exports.save = function (req, res) {
   let pizza = new Pizza();
 
-  const { id, name, price, imageUrl } = req.body;
+  const { _id, name, price, imageUrl } = req.body;
 
   pizza.name = name;
-  pizza.id = id;
+  pizza.id = _id;
   pizza.imageUrl = imageUrl;
   pizza.price = price;
 
@@ -25,16 +25,16 @@ exports.all = function (req, res) {
 };
 
 exports.update = function (req, res) {
-  const { id, update } = req.body;
-  Pizza.findByIdAndUpdate(id, update, (err) => {
+  const { _id } = req.body;
+  Pizza.findByIdAndUpdate(_id, req.body, (err) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
 }
 
 exports.delete = function (req, res) {
-  const { id } = req.body;
-  Pizza.findByIdAndRemove(id, (err) => {
+  const { _id } = req.body;
+  Pizza.findByIdAndRemove(_id, (err) => {
     if (err) return res.send(err);
     return res.json({ success: true });
   });
